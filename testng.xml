@@ -3,6 +3,8 @@
 <classes>
     <class name = "tests.Login_Missing_credentials">
     </class>
+    <class name = "tests.Login_Missing_Password">
+    </class>
     <class name = "tests.Login_Failed">
     </class>
     <class name = "tests.Login_User_locked_out">
