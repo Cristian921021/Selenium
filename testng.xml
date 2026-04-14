@@ -1,0 +1,14 @@
+<suite name = "SwagSuite">
+<test name ="SwagLoginTest">
+<classes>
+    <class name = "tests.Login_Missing_credentials">
+    </class>
+    <class name = "tests.Login_Failed">
+    </class>
+    <class name = "tests.Login_User_locked_out">
+    </class>
+    <class name = "tests.LoginTest">
+    </class>
+</classes>
+</test>
+</suite>
