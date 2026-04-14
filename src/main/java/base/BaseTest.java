@@ -1,19 +1,23 @@
 package base;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
-import java.time.Duration;
+import utils.Log;
+
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Objects;
 
 public class BaseTest {
+    private static final Logger log = LogManager.getLogger(BaseTest.class);
     protected WebDriver driver;
     @BeforeMethod
     public void setUp(){
+        Log.info("Starting WebDriver without leaks nuisances...");
         ChromeOptions options = new ChromeOptions();
         Map<String, Object> prefs = new HashMap<String, Object>();
         prefs.put("credentials_enable_service", false);
@@ -22,11 +26,13 @@ public class BaseTest {
         options.setExperimentalOption("prefs", prefs);
         driver = new ChromeDriver();
         driver.manage().window().maximize();
+        Log.info("Navigating to URL...");
         driver.get("https://www.saucedemo.com/");
     }
     @AfterMethod
     public void tearDown(){
         if (driver != null) {
+            log.info("Closing the browser...");
             driver.quit();
         }
     }

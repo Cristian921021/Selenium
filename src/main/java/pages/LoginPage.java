@@ -5,6 +5,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Wait;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import utils.Log;
 
 import java.time.Duration;
 
@@ -27,6 +28,7 @@ public class LoginPage {
         driver.findElement(passwordTextBox).sendKeys(passwordnop);
     }
     public void enterLogin(){
+        Log.info("Clicking the login button...");
         driver.findElement(loginButton).click();
     }
     public String ErrorcredentialsPop (){
