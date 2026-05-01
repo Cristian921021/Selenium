@@ -1,5 +1,7 @@
 <suite name = "SwagSuite">
 <test name ="SwagLoginTest">
+    <parameter name="username" value="standard_user"/>
+    <parameter name="password" value="secret_sauce"/>
 <classes>
     <class name = "tests.Login_Missing_credentials">
     </class>

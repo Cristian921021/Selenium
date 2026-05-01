@@ -12,7 +12,7 @@ import java.io.IOException;
 
 import static org.testng.Assert.assertEquals;
 
-public class LoginTest extends BaseTest {
+public class LoginTest_Innerlist extends BaseTest {
 
     @DataProvider(name = "Login Users Data")
     public Object [][] getLoginData() throws IOException {
@@ -28,7 +28,18 @@ public class LoginTest extends BaseTest {
         ExcelUtils.closeExcel();
         return data;
     }
-    @Test (dataProvider = "Login Users Data")
+    @DataProvider(name = "Login Users Data 2")
+    public Object [][] getData(){
+        return new Object[][] {
+                {"standard_user","secret_sauce"},
+                {"problem_user","secret_sauce"},
+                {"performance_glitch_user","secret_sauce"},
+                {"error_user","secret_sauce"},
+                {"visual_user","secret_sauce"}
+        };
+    }
+
+    @Test (dataProvider = "Login Users Data 2")
     public void testValidLogin(String username, String password){
         Log.info("Starting Login Test...");
         test = ExtentReportManager.createTest("Login Test "+username);

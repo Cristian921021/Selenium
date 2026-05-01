@@ -2,6 +2,7 @@ package tests;
 
 import base.BaseTest;
 import org.testng.annotations.DataProvider;
+import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 import pages.LoginPage;
 import utils.ExcelUtils;
@@ -12,7 +13,7 @@ import java.io.IOException;
 
 import static org.testng.Assert.assertEquals;
 
-public class LoginTest extends BaseTest {
+public class LoginTest_testng extends BaseTest {
 
     @DataProvider(name = "Login Users Data")
     public Object [][] getLoginData() throws IOException {
@@ -28,7 +29,9 @@ public class LoginTest extends BaseTest {
         ExcelUtils.closeExcel();
         return data;
     }
-    @Test (dataProvider = "Login Users Data")
+//    @Test (dataProvider = "Login Users Data")
+    @Test
+    @Parameters ({"username","password"})
     public void testValidLogin(String username, String password){
         Log.info("Starting Login Test...");
         test = ExtentReportManager.createTest("Login Test "+username);
